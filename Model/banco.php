@@ -12,6 +12,7 @@ include_once ('../infra/connection.php');
             $executa = mysqli_query($this->conexao->getConnection(), $sql);;
         
     }
+    
 
     function pegarprojetos(){
     $pesquisa = 'SELECT * FROM projetos';
@@ -20,9 +21,9 @@ include_once ('../infra/connection.php');
        if(mysqli_num_rows($exec) != 0 ) {
             
             while( $row = mysqli_fetch_array($exec) ){
-                $produtos[] = $row; 
+                $retorno[] = $row; 
             }
-            return $produtos;
+            return $retorno;
 
         } else {
             
@@ -30,5 +31,27 @@ include_once ('../infra/connection.php');
             return false;
         }
     }
+    function cadastraatividadebanco($nomeAtividade,$idprojeto,$datainicioatividade,$datafinalatividade){
+        $sql = "INSERT INTO atividades( nome_atividade, id_projeto, atividade_data_inicio, atividade_data_final) VALUES ('$nomeAtividade','$idprojeto','$datainicioatividade','$datafinalatividade' )";
+            $executa = mysqli_query($this->conexao->getConnection(), $sql);;
+        
+    }
+    function pegaratividades(){
+        $pesquisa = 'SELECT * FROM atividades';
+            $exec= mysqli_query($this->conexao->getConnection(), $pesquisa); 
+    
+           if(mysqli_num_rows($exec) != 0 ) {
+                
+                while( $row = mysqli_fetch_array($exec) ){
+                    $retorno[] = $row; 
+                }
+                return $retorno;
+    
+            } else {
+                
+               
+                return false;
+            }
+        }
     }
  

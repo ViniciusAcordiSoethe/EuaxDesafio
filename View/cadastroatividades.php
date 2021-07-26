@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Euax cadastro Projeto</title>
+    <title>Euax cadastro atividade</title>
 </head>
 <body>
-    <form action="../Controller/projetos.php?action=cadastroProjeto" method="post">
-        <label>Nome do Projeto:</label>
+    <form action="../Controller/atividades.php?action=cadastroAtividade" method="post">
+        <label>Nome do atividade:</label>
         <input type="text" name="nomeProjeto">
+        <br>
+        <label>ativadade do projeto de ID:</label>
+        <input type="text" name="iddoProjeto">
         <br>
         <label>Data inicio:</label>
         <input type="date" name="datainicioprojeto">
@@ -17,7 +20,7 @@
         <label>Data Final:</label>
         <input type="date" name="datafinalprojeto">
         <br>
-        <input type="submit" name="cadastroProjeto" value="Cadastrar" >
+        <input type="submit" name="cadastroAtividade" value="Cadastrar" >
     </form>
 </body>
 </html>
