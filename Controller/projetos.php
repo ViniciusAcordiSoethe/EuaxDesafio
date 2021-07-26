@@ -18,11 +18,16 @@ function cadastroProjeto(){
    header('location: ../index.php');
    
 }
-function pegarprojetoscontrole(){    
-       
-    $projeto = new Projeto;    
-    $projetos = $projeto->pegarprojetos(); 
+
+function deletarprojeto(){
+    $idprojeto = $_GET['id_projeto'];
+    $projeto = new Projeto();
+    $projeto->deletaprojeto($idprojeto);
+    header('location: ../index.php');
 }
+
+
+    
 
 
 

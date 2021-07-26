@@ -31,8 +31,8 @@ include_once ('../infra/connection.php');
             return false;
         }
     }
-    function cadastraatividadebanco($nomeAtividade,$idprojeto,$datainicioatividade,$datafinalatividade){
-        $sql = "INSERT INTO atividades( nome_atividade, id_projeto, atividade_data_inicio, atividade_data_final) VALUES ('$nomeAtividade','$idprojeto','$datainicioatividade','$datafinalatividade' )";
+    function cadastraatividadebanco($nomeAtividade,$idprojeto,$datainicioatividade,$datafinalatividade, $finalizada){
+        $sql = "INSERT INTO atividades( nome_atividade, id_projeto, atividade_data_inicio, atividade_data_final, Finalizada) VALUES ('$nomeAtividade','$idprojeto','$datainicioatividade','$datafinalatividade' , '$finalizada' )";
             $executa = mysqli_query($this->conexao->getConnection(), $sql);;
         
     }
@@ -53,5 +53,34 @@ include_once ('../infra/connection.php');
                 return false;
             }
         }
+        function pegaratividadesonde($id_projeto){
+            $pesquisa = "SELECT Finalizada FROM atividades WHERE id_projeto = $id_projeto";
+                $exec= mysqli_query($this->conexao->getConnection(), $pesquisa); 
+        
+               if(mysqli_num_rows($exec) != 0 ) {
+                    
+                    while( $row = mysqli_fetch_array($exec) ){
+                        $retorno[] = $row; 
+                    }
+                    return $retorno;
+        
+                } else {
+                    
+                   
+                    return false;
+                }
+            }
+            function deletaprojeto($idProjeto){
+
+                $sql = "DELETE FROM projetos WHERE id_projeto = $idProjeto ";
+                $executa = mysqli_query($this->conexao->getConnection(), $sql);
+                
+            }
+            function deletaatividade($idatt){
+
+                $sql = "DELETE FROM atividades WHERE id_atividade = $idatt ";
+                $executa = mysqli_query($this->conexao->getConnection(), $sql);
+                
+            }
     }
  

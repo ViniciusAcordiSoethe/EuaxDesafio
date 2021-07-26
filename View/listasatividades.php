@@ -29,8 +29,8 @@ $atividades = $atividade->pegaratividades();
     <th><?= $atividade['id_projeto']?></th>
     <th><?= $atividade['atividade_data_inicio']?></th>
     <th><?= $atividade['atividade_data_final']?></th>
-    <th>Finalizado</th>
-    <th><a href='#'>Editar</a>||<a href='#'>Editar</a></th>
+    <th><?= $atividade['Finalizada']?></th>
+    <th><a href='#'>Editar</a>||<a href='../Controller/projetos.php?action=deletaratividade&id_atividade=<?= $atividade['id_atividade']?>'>Excluir</a></th>
   </tr> 
     <?php endforeach ?>
     </table>

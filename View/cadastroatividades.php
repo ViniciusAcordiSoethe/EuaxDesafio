@@ -20,6 +20,9 @@
         <label>Data Final:</label>
         <input type="date" name="datafinalprojeto">
         <br>
+        <label>Finalizada Sim Ou Não:</label>
+        <input type="text" name="finalizada">
+        <br>
         <input type="submit" name="cadastroAtividade" value="Cadastrar" >
     </form>
 </body>
